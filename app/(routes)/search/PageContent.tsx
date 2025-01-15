@@ -128,15 +128,15 @@ const PageContents = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 bgone borderone p-2 rounded-md">
         <Input
           className="w-full"
-          placeholder="Search...."
+          placeholder="Ara...."
           onChange={handleSearchChange}
         />
         <Select onValueChange={handleCategoryChange}>
           <SelectTrigger className="w-full">
-            <SelectValue placeholder="All Categories" />
+            <SelectValue placeholder="Tüm Kategoriler" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Categories</SelectItem>
+            <SelectItem value="all">Tüm Kategoriler</SelectItem>
             {categories.map((category) => (
               <SelectItem key={category.id} value={category.attributes.slug}>
                 {category.attributes.name}
