@@ -19,7 +19,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
       <h2 className="font-bold text-lg">{product?.attributes?.name}</h2>
       <div className="flex gap-3">
         {product?.attributes.sellingPrice && (
-          <h2>₺{product?.attributes?.sellingPrice}</h2>
+          <h2>${product?.attributes?.sellingPrice}</h2>
         )}
         <h2
           className={

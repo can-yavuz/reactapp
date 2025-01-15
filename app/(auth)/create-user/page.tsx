@@ -115,7 +115,7 @@ const CreateUserPage = () => {
             <FormItem>
               <FormLabel className="textone">Şifre</FormLabel>
               <FormControl>
-                <Input placeholder="Şifre" type="password" {...field} />
+                <Input placeholder="Şifreniz" type="password" {...field} />
               </FormControl>
               <FormMessage className="validationLogin" />
             </FormItem>

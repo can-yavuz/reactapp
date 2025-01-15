@@ -78,7 +78,7 @@ const Cart = ({ jwt, userId }: CartProps) => {
           <SheetClose asChild>
             <div className="absolute w-[90%] bottom-6 flex-col">
               <h2 className="text-lg flex justify-between">
-                Toplam <span>₺{subtotal}</span>{" "}
+                Toplam <span>${subtotal}</span>{" "}
               </h2>
 
               <div>

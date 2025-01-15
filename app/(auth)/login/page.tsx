@@ -103,7 +103,7 @@ const LoginPage = () => {
           )}
         />
         <Button className="w-full" type="submit">
-        {loader? <Loader2Icon className="animate-spin"/> : "Login"}
+        {loader? <Loader2Icon className="animate-spin"/> : "Giriş Yap"}
         </Button>
       </form>
       <div className="mt-8">
