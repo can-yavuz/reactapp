@@ -143,7 +143,7 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
 
     try {
       const response = await axios.post(
-        "https://webvemobilprogramlama.com/",
+        "https://webvemobilprogramlama.com:3001/api/payment",
         paymentData,
         {
           headers: {
