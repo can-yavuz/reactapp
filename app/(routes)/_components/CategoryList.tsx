@@ -34,7 +34,7 @@ const CategoryList = () => {
       ) : (
         <div className="mt-10 container">
           <h2 className="textone font-semibold text-2xl lg:text-3xl">
-            Shop By Category
+            Kategoriye Göre Alışveriş Yap
           </h2>
           <div
             className="grid mt-8 grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6
