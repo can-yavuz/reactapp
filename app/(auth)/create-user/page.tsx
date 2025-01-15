@@ -24,13 +24,13 @@ import { Loader2Icon } from "lucide-react";
 
 const formSchema = z.object({
   username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: "Kullanıcı adı en az 2 karakter olmalı.",
   }),
   email: z.string().min(2, {
-    message: "Email must be at least 2 characters.",
+    message: "Email en az 2 karakter olmalı.",
   }),
   password: z.string().min(2, {
-    message: "Password must be at least 2 characters.",
+    message: "Şifre en az 2 karakter olmalı.",
   }),
 });
 
@@ -57,7 +57,7 @@ const CreateUserPage = () => {
         startSession(resp.user, resp.jwt);
         toast({
           variant:"success",
-          title: "Account Created",
+          title: "Hesap Oluşturuldu",
         })
         setLoader(false);
         router.push("/")
@@ -67,7 +67,7 @@ const CreateUserPage = () => {
         console.error(error);
         toast({
           variant:"destructive",
-          title: "Something went wrong",
+          title: "Bir Hata Meydana Geldi",
         })
 
       }
@@ -99,9 +99,9 @@ const CreateUserPage = () => {
           name="username"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="textone">Username</FormLabel>
+              <FormLabel className="textone">Kullanıcı Adı</FormLabel>
               <FormControl>
-                <Input placeholder="Username" {...field} />
+                <Input placeholder="Kullanıcı Adınız" {...field} />
               </FormControl>
               <FormMessage className="validationLogin" />
             </FormItem>
@@ -113,9 +113,9 @@ const CreateUserPage = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="textone">Password</FormLabel>
+              <FormLabel className="textone">Şifre</FormLabel>
               <FormControl>
-                <Input placeholder="Password" type="password" {...field} />
+                <Input placeholder="Şifre" type="password" {...field} />
               </FormControl>
               <FormMessage className="validationLogin" />
             </FormItem>
@@ -127,12 +127,12 @@ const CreateUserPage = () => {
       </form>
       <div className="mt-8">
         <Label className="flex flex-col items-center">
-          Allready Account
+          Hesabım Var
           <Link
             href="/login"
             className="text-mycolor3 font-semibold mt-5"
           >
-            Click here to create a new account
+            Giriş Yap
           </Link>
         </Label>
       </div>

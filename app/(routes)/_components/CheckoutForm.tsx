@@ -22,31 +22,31 @@ import { createOrder } from "@/actions/Cart/createOrder";
 import { DeleteToCart } from "@/actions/Cart/deleteToCart";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  phone: z.string().min(2, { message: "Phone must be at least 2 characters." }),
+  name: z.string().min(2, { message: "Name en az 2 karakter olmalıdır." }),
+  phone: z.string().min(2, { message: "Phone en az 2 karakter olmalıdır." }),
   address: z
     .string()
-    .min(2, { message: "Address must be at least 2 characters." }),
+    .min(2, { message: "Adres en az 2 karakter olmalıdır." }),
   holdername: z
     .string()
-    .min(2, { message: "Holder Name must be at least 2 characters." }),
+    .min(2, { message: "İsim en az 2 karakter olmalıdır." }),
   ccnumber: z
     .string()
-    .regex(/^\d{16}$/, { message: "Credit Number must be 16 digits." }),
+    .regex(/^\d{16}$/, { message: "Kart numarası 16 karakter olmalıdır." }),
   month: z.preprocess(
     (val) => Number(val),
     z
       .number()
-      .min(1, { message: "Month is required." })
-      .max(12, { message: "Month must be between 1 and 12." })
+      .min(1, { message: "Ay gereklidir." })
+      .max(12, { message: "Ay 1 ve 12 arasında olmalıdır" })
   ),
   year: z.preprocess(
     (val) => Number(val),
     z.number().min(new Date().getFullYear(), {
-      message: "Year must be the current year or later.",
+      message: "Yıl şu anki veya gelecekteki olmalıdır.",
     })
   ),
-  cvc: z.string().regex(/^\d{3,4}$/, { message: "CVC must be 3 or 4 digits." }),
+  cvc: z.string().regex(/^\d{3,4}$/, { message: "CVC 3 haneli olmalıdır." }),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -67,10 +67,10 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "Efe Görkem Ümit",
-      phone: "+90 555 222 11 22",
-      address: "ıstanbul Turkey",
-      holdername: "Gorkem ",
+      name: "Can Yavuz",
+      phone: "+90 507 100 1007",
+      address: "Kayseri Turkey",
+      holdername: "Ramazan Serhat Uygun",
       ccnumber: "5890040000000016",
       month: 4,
       year: 2029,
@@ -91,33 +91,33 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
     const buyer = {
       id: "BY789",
       name: data.name,
-      surname: "Youtube",
+      surname: "Yavuz",
       gsmNumber: data.phone,
-      email: "john.doe@example.com",
-      identityNumber: "74300864791",
-      lastLoginDate: "2015-10-05 12:43:35",
-      registrationDate: "2013-04-21 15:12:09",
+      email: "birisi@gmail.com",
+      identityNumber: "11111111111",
+      lastLoginDate: "2024-10-05 12:43:35",
+      registrationDate: "2023-04-21 15:12:09",
       registrationAddress: data.address,
       ip: "85.34.78.112",
-      city: "Istanbul",
-      country: "Turkey",
-      zipCode: "34732",
+      city: "Rize",
+      country: "Türkiye",
+      zipCode: "53000",
     };
 
     const shippingAddress = {
       contactName: data.name,
-      city: "Istanbul",
-      country: "Turkey",
+      city: "Rize",
+      country: "Türkiye",
       address: data.address,
-      zipCode: "34742",
+      zipCode: "53000",
     };
 
     const billingAddress = {
       contactName: data.name,
-      city: "Istanbul",
-      country: "Turkey",
+      city: "Rize",
+      country: "Türkiye",
       address: data.address,
-      zipCode: "34742",
+      zipCode: "53000",
     };
 
     const basketItems = items.map((item) => ({
@@ -175,7 +175,7 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
 
         toast({
           variant: "success",
-          title: "Order Success",
+          title: "Satın Alım Başarılı",
         });
 
         fetchItems(userId, jwt);
@@ -184,13 +184,13 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
       } else {
         toast({
           variant: "destructive",
-          title: "Order Error",
+          title: "Satın Alım Sırasında Bir Hata Meydana Geldi",
         });
       }
     } catch (error) {
       toast({
         variant: "destructive",
-        title: "Order Error" + error,
+        title: "Satın Alım Sırasında Bir Hata Meydana Geldi" + error,
       });
       console.error("Error:", error);
     }
@@ -200,16 +200,16 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
     <div className="p-8">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-          <h2 className="border-b borderone text-2xl">Address</h2>
+          <h2 className="border-b borderone text-2xl">Adres</h2>
           <div className="flex flex-row gap-4">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel className="textone">Name</FormLabel>
+                  <FormLabel className="textone">Ad Soyad</FormLabel>
                   <FormControl>
-                    <Input placeholder="John doe" {...field} />
+                    <Input placeholder="Adınız Soyadınız" {...field} />
                   </FormControl>
                   <FormMessage className="validationLogin" />
                 </FormItem>
@@ -221,9 +221,9 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
               name="phone"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel className="textone">Phone</FormLabel>
+                  <FormLabel className="textone">Telefon</FormLabel>
                   <FormControl>
-                    <Input placeholder="+90 555 222 111" {...field} />
+                    <Input placeholder="+90 5xx xxx xxxx" {...field} />
                   </FormControl>
                   <FormMessage className="validationLogin" />
                 </FormItem>
@@ -238,7 +238,7 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
               <FormItem className="w-full">
                 <FormLabel className="textone">Address</FormLabel>
                 <FormControl>
-                  <Input placeholder="city street" {...field} />
+                  <Input placeholder="Adresiniz..." {...field} />
                 </FormControl>
                 <FormMessage className="validationLogin" />
               </FormItem>
@@ -246,7 +246,7 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
           />
 
           <div className="h-8"></div>
-          <h2 className="border-b borderone text-2xl">Cart Information</h2>
+          <h2 className="border-b borderone text-2xl">Kart Bilgileri</h2>
 
           <div className="flex flex-row gap-4">
             <FormField
@@ -254,9 +254,9 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
               name="holdername"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel className="textone">Holder Name</FormLabel>
+                  <FormLabel className="textone">Kart Üzerindeki İsim</FormLabel>
                   <FormControl>
-                    <Input placeholder="Holder Name" {...field} />
+                    <Input placeholder="Ad Soyad" {...field} />
                   </FormControl>
                   <FormMessage className="validationLogin" />
                 </FormItem>
@@ -268,9 +268,9 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
               name="ccnumber"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel className="textone">Credit Number</FormLabel>
+                  <FormLabel className="textone">Kart Numarası</FormLabel>
                   <FormControl>
-                    <Input placeholder="Credit Number" {...field} />
+                    <Input placeholder="xxxxxxxxxxxxxxxx" {...field} />
                   </FormControl>
                   <FormMessage className="validationLogin" />
                 </FormItem>
@@ -284,9 +284,9 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
               name="month"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel className="textone">Month</FormLabel>
+                  <FormLabel className="textone">Ay</FormLabel>
                   <FormControl>
-                    <Input type="number" placeholder="Month" {...field} />
+                    <Input type="number" placeholder="Ay" {...field} />
                   </FormControl>
                   <FormMessage className="validationLogin" />
                 </FormItem>
@@ -298,9 +298,9 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
               name="year"
               render={({ field }) => (
                 <FormItem className="w-full">
-                  <FormLabel className="textone">Year</FormLabel>
+                  <FormLabel className="textone">Yıl</FormLabel>
                   <FormControl>
-                    <Input type="number" placeholder="Year" {...field} />
+                    <Input type="number" placeholder="Yıl" {...field} />
                   </FormControl>
                   <FormMessage className="validationLogin" />
                 </FormItem>
@@ -322,7 +322,7 @@ const Checkoutform = ({ subtotal, jwt, userId }: CheckoutFormProps) => {
             />
           </div>
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Ödeme Yap</Button>
         </form>
       </Form>
     </div>

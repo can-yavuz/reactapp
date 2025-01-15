@@ -59,13 +59,13 @@ const Cart = ({ jwt, userId }: CartProps) => {
       </SheetTrigger>
       <SheetContent className="bgone">
         <SheetHeader>
-          <SheetTitle>Your Shopping Cart</SheetTitle>
+          <SheetTitle>Sepetim</SheetTitle>
           <SheetDescription>
-            Here are the items currently in your cart.
+            Sepetinizdeki ürünler burada görünmektedir.
           </SheetDescription>
           <div>
             {items.length === 0 ? (
-              <p>Your Cart is Empty</p>
+              <p>Sepetiniz Boş</p>
             ) : (
               <ul>
                 {items.map((item) => (
@@ -78,7 +78,7 @@ const Cart = ({ jwt, userId }: CartProps) => {
           <SheetClose asChild>
             <div className="absolute w-[90%] bottom-6 flex-col">
               <h2 className="text-lg flex justify-between">
-                SubTotal <span>${subtotal}</span>{" "}
+                Toplam <span>${subtotal}</span>{" "}
               </h2>
 
               <div>
@@ -87,7 +87,7 @@ const Cart = ({ jwt, userId }: CartProps) => {
                   onClick={() => router.push(jwt ? "/checkout" : "/login")}
                 >
                   {" "}
-                  Checkout{" "}
+                  Ödeme {" "}
                 </Button>
               </div>
             </div>

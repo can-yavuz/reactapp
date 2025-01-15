@@ -32,7 +32,7 @@ const ProductList = () => {
       ) : (
         <div className="mt-10 container">
           <h2 className="textone font-semibold text-2xl lg:text-3xl">
-            Shop By Products
+            Ürünlere Göre Alışveriş Yap
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-8 mb-8">
             {products.map((product, index) => (

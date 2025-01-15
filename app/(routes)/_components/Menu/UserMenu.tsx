@@ -44,12 +44,12 @@ const UserMenu = () => {
     <UserCircleIcon className='h-6 w-6'/>
   </DropdownMenuTrigger>
   <DropdownMenuContent>
-    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuLabel>Hesabım</DropdownMenuLabel>
     <DropdownMenuSeparator />
     <Link href="/my-order">
-    <DropdownMenuItem>Library</DropdownMenuItem>
+    <DropdownMenuItem>Satın Alımlarım</DropdownMenuItem>
     </Link>
-    <DropdownMenuItem onClick={onSignout}>Logout</DropdownMenuItem>
+    <DropdownMenuItem onClick={onSignout}>Çıkış Yap</DropdownMenuItem>
   </DropdownMenuContent>
 </DropdownMenu>
 

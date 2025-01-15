@@ -34,7 +34,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
       <div className="flex  flex-row gap-4">
         <Dialog>
           <DialogTrigger>
-            <Button variant="destructive">Add To Cart</Button>
+            <Button variant="destructive">Sepete Ekle</Button>
           </DialogTrigger>
           <DialogContent className="bgone sm:max-w-[900px]">
             <ProductModal product={product} />

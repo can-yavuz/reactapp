@@ -57,7 +57,7 @@ const ProductForm = ({ product, btnVisible }: ProductForm) => {
       await AddToCart(data, jwt);
       fetchItems(userId, jwt);
       toast({
-        title: "Add to Cart ",
+        title: "Sepete Ekle",
         variant: "success",
       });
     } catch (error) {
@@ -71,12 +71,12 @@ const ProductForm = ({ product, btnVisible }: ProductForm) => {
     <>
       <div className="flex flex-row gap-2 mt-8">
         <Button onClick={onAddCart} variant="destructive">
-          {loading ? <Loader2Icon className="animate-spin" /> : "Add To Cart"}
+          {loading ? <Loader2Icon className="animate-spin" /> : "Sepete Ekle"}
         </Button>
 
         {btnVisible && (
           <Button asChild>
-            <Link href={`product/${product?.attributes?.slug}`}>Detail</Link>
+            <Link href={`product/${product?.attributes?.slug}`}>Detaylar</Link>
           </Button>
         )}
       </div>
