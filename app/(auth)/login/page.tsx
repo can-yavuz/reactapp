@@ -24,10 +24,10 @@ import { Loader2Icon } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().min(2, {
-    message: "Email must be at least 2 characters.",
+    message: "Email en az 2 karakter olmalı.",
   }),
   password: z.string().min(2, {
-    message: "Password must be at least 2 characters.",
+    message: "Şifre en az 2 karakter olmalı.",
   }),
 });
 
@@ -52,7 +52,7 @@ const LoginPage = () => {
         startSession(resp.user, resp.jwt);
         toast({
           variant:"success",
-          title: "Login Success",
+          title: "Giriş Başarılı",
         })
         setLoader(false);
         router.push("/")
@@ -62,7 +62,7 @@ const LoginPage = () => {
         console.error(error);
         toast({
           variant:"destructive",
-          title: "Something went wrong",
+          title: "Bir hata oluştu.",
         })
 
       }
@@ -82,7 +82,7 @@ const LoginPage = () => {
             <FormItem>
               <FormLabel className="textone">Email</FormLabel>
               <FormControl>
-                <Input placeholder="Email" {...field} />
+                <Input placeholder="Email adresiniz" {...field} />
               </FormControl>
               <FormMessage className="validationLogin" />
             </FormItem>
@@ -94,9 +94,9 @@ const LoginPage = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="textone">Password</FormLabel>
+              <FormLabel className="textone">Şifre</FormLabel>
               <FormControl>
-                <Input placeholder="Password" type="password" {...field} />
+                <Input placeholder="Şifreniz" type="password" {...field} />
               </FormControl>
               <FormMessage className="validationLogin" />
             </FormItem>
@@ -108,12 +108,12 @@ const LoginPage = () => {
       </form>
       <div className="mt-8">
         <Label className="flex flex-col items-center">
-          Dont have an account
+          Hesabınız Yok Mu?
           <Link
             href="/create-user"
             className="text-mycolor3 font-semibold mt-5"
           >
-            Click here to create a new account
+            Yeni bir hesap oluşturmak için buraya tıklayın.
           </Link>
         </Label>
       </div>

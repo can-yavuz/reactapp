@@ -57,7 +57,7 @@ const ProductForm = ({ product, btnVisible }: ProductForm) => {
       await AddToCart(data, jwt);
       fetchItems(userId, jwt);
       toast({
-        title: "Sepete Ekle",
+        title: "Ürün Sepete Başarıyla Eklendi.",
         variant: "success",
       });
     } catch (error) {

@@ -122,17 +122,17 @@ const CreateUserPage = () => {
           )}
         />
         <Button className="w-full" type="submit">
-          {loader? <Loader2Icon className="animate-spin"/> : "Create Account"}
+          {loader? <Loader2Icon className="animate-spin"/> : "Hesap Oluştur"}
         </Button>
       </form>
       <div className="mt-8">
         <Label className="flex flex-col items-center">
-          Hesabım Var
+          Hesabınız Var Mı?
           <Link
             href="/login"
             className="text-mycolor3 font-semibold mt-5"
           >
-            Giriş Yap
+            Hesabınızla giriş yapmak için buraya tıklayın.
           </Link>
         </Label>
       </div>

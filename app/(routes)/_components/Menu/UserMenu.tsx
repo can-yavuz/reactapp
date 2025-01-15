@@ -47,7 +47,7 @@ const UserMenu = () => {
     <DropdownMenuLabel>Hesabım</DropdownMenuLabel>
     <DropdownMenuSeparator />
     <Link href="/my-order">
-    <DropdownMenuItem>Satın Alımlarım</DropdownMenuItem>
+    <DropdownMenuItem>Kütüphane</DropdownMenuItem>
     </Link>
     <DropdownMenuItem onClick={onSignout}>Çıkış Yap</DropdownMenuItem>
   </DropdownMenuContent>

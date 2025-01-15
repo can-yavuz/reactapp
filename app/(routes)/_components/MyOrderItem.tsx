@@ -39,7 +39,7 @@ const MyorderItem = ({ orderItem }: MyOrderItemProps) => {
           <h2>{orderItem.product.data.attributes.name}</h2>
         </div>
         <div className="col-span-1">
-          <h2>ItemPrice: {orderItem.amount}</h2>
+          <h2>Fiyatı: {orderItem.amount}</h2>
         </div>
       </div>
     </div>

@@ -61,7 +61,7 @@ const CheckoutPage = () => {
             <CartItem key={item.id} item={item} onDeleteItem={onDeleteItem} />
           ))}
           <div className="flex border border-one justify-center items-center">
-            Subtotal : {subtotal}
+            Genel Toplam : {subtotal}
           </div>
         </div>
       </div>

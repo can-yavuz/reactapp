@@ -80,30 +80,30 @@ const MyOrderPage = () => {
 
   return (
     <div>
-      <h2 className="p-3 bg-mycolor3 text-white font-bold text-4xl text-center">
-        My Library
+      <h2 className="p-3 bg-green-800 text-white font-bold text-4xl text-center">
+        Kütüphanem
       </h2>
 
       <div className="py-8 mx-7">
-        <h2 className="text-2xl textone font-bold">Library</h2>
+        <h2 className="text-2xl textone font-bold">Kütüphane</h2>
 
         <div className="mt-10">
           {orderList.map((item, index) => (
             <Collapsible key={index}>
               <CollapsibleTrigger className="grid grid-cols-7 mt-3 items-center border borderone p-2 bgone gap-8">
                 <h2>
-                  <span className="font-bold mr-2">Order Date :</span>{" "}
+                  <span className="font-bold mr-2">Satın Alım Tarihi :</span>{" "}
                   {moment(item.createdAt).format("DD/MMM/yyyy")}
                 </h2>
                 <h2>
-                  <span className="font-bold mr-2">Total :</span>{" "}
+                  <span className="font-bold mr-2">Toplam :</span>{" "}
                   {item.subtotal}{" "}
                 </h2>
                 <h2>
-                  <span className="font-bold mr-2">Status :</span> Pending{" "}
+                  <span className="font-bold mr-2">Durum :</span> Alındı{" "}
                 </h2>
                 <h2>
-                  <span className="font-bold mr-2">Payment :</span>{" "}
+                  <span className="font-bold mr-2">Ödeme :</span>{" "}
                   {item.paymentText}{" "}
                 </h2>
                 <h2 className="col-span-2">

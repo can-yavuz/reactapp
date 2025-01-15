@@ -42,7 +42,7 @@ const ProductItem = ({ product }: ProductItemProps) => {
         </Dialog>
 
         <Button asChild>
-          <Link href={`/product/${product?.attributes?.slug}`}>Detail</Link>
+          <Link href={`/product/${product?.attributes?.slug}`}>Detaylar</Link>
         </Button>
       </div>
     </div>
